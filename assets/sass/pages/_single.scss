@@ -11,7 +11,7 @@
     line-height: 3rem;
     overflow-wrap: break-word;
     margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     
     @include themify($themes) {
       color: themed("single-header-title-color");
@@ -23,7 +23,7 @@
   }
 
   &__subtitle {
-    margin-bottom: 1.75rem;
+    margin-bottom: 0.75rem;
     font-family: $title-font;
     
     @include themify($themes) {
@@ -33,6 +33,18 @@
     &[data-ani="true"] {
       @include animation('slide-in-down .2s .3s 1 ease-in both');
     }
+	
+		a {
+		  @include themify($themes) {
+			text-decoration: none;
+			color: themed("toc-link-color");
+
+			@include on-event {
+			  color: themed("toc-link-hover");
+			  text-decoration: underline;
+			}
+		  }
+		}
   }
 
   &__shorttitle {
@@ -51,25 +63,13 @@
     font-size: 0.8rem;
     margin-bottom: 2rem;
 
-    @include flexbox();
-    @include align-items(center);
-    @include flex-wrap(wrap);
-    @include flex-grow(1);
     @include themify($themes) {
       color: themed('meta-color');
-    }
-    @media only screen and (max-width: 769px) {
-      @include flexbox();
-      @include flex-direction(column);
-      @include align-items(flex-start);
     }
   }
 
   &__infos {
     margin-right: 0.5rem;
-
-    @include flexbox();
-    @include flex-wrap(wrap);
   }
 
   &__info {
@@ -82,6 +82,16 @@
     color: red;
     padding: 0.5rem 0;
   }
+
+    hr {
+      margin: 0 0 calc(1.25rem - 1px) 0;
+      padding: 0;
+      border: none;
+      height: 1px;
+      @include themify($themes) {
+        background: themed("single-hr-background-color");
+      }
+    }
 
   &__contents {
     &[data-ani="true"] {
@@ -359,16 +369,6 @@
       }
     }
 
-    hr {
-      margin: 0 0 calc(1.25rem - 1px) 0;
-      padding: 0;
-      border: none;
-      height: 1px;
-      @include themify($themes) {
-        background: themed("single-hr-background-color");
-      }
-    }
-
     dl dt::after {
         content: ':';
     }
@@ -403,7 +403,6 @@
         max-width: 100%;
         margin: 10px 0;
         border-spacing: 0;
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.125);
 
         
         @include themify($codeblock) {
@@ -417,7 +416,6 @@
 
           th, td {
             padding: 0.25rem 0.5rem;
-            border: 1px double themed('content-pre-border-background-color');
           }
         }
       }

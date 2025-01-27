@@ -12,6 +12,17 @@
     position: -webkit-sticky;
     position: sticky;
     bottom: 70px;
+	
+    a {
+      @include themify($themes) {        
+        text-decoration: none;
+        color: themed('social-icon-color');
+        &:hover {
+          color: themed('social-icon-hover-color');
+          transition: color 0.2s ease;
+        }        
+      }   
+    }
     
     @include flexbox();
     @include justify-content(center);

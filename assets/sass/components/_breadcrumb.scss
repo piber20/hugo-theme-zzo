@@ -45,3 +45,11 @@
     }
   }
 }
+
+.forcebcbefore:before {
+    padding: 0.5rem;    
+    content: "/\00a0";
+    @include themify($themes) {
+      color: themed('breadcrumb-item-color');
+    }
+}

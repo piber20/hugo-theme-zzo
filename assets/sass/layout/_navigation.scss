@@ -46,10 +46,11 @@
     }
 
     @include themify($themes) {
-      background-color: themed('navbar-background-color') !important;
+      background-color: themed('navbar-item-background-color') !important;
 
       @include on-event {
         color: themed('navbar-title-hover-color');
+        background-color: themed('navbar-item-background-color-hover') !important;
       }
     }
 
@@ -218,10 +219,8 @@
         color: themed('navbar-title-color');
         border-top: 1px solid transparent;
         border-bottom: 1px solid themed('navbar-border-bottom-color');
-        background-color: themed('navbar-background-color');
         @include on-event {
           color: themed('navbar-title-hover-color');
-          // background-color: themed('navbar-menu-hover-background-color');
           text-decoration: none;
           border-bottom: 1px solid themed('navbar-border-bottom-color');
         }
@@ -296,14 +295,14 @@
       padding: 0.25rem 0.75rem;
       height: auto;
       margin: auto;
-      min-width: 40px;
-      max-width: 150px;
+      min-width: 100px;
+      max-width: 400px;
       text-decoration: none;
       display: block;
       font-size: 1rem;
       font-weight: 700;
 
-      @include truncate(150px);
+      @include truncate(400px);
       @include themify($themes) {
         color: themed("dropdown-item-color");
         background-color: themed("navbar-background-color");

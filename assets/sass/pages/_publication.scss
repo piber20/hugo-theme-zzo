@@ -67,9 +67,9 @@
     
     @include themify($themes) {
       color: themed('body-color') !important;
-      background-color: themed('donation-background-color');
+      background-color: themed('share-background-color');
       @include on-event {
-        background-color: darken(themed('donation-background-color'), 5%);
+        background-color: darken(themed('share-background-color'), 5%);
       }
     }
   }

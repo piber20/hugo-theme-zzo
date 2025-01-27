@@ -100,7 +100,7 @@
     @include flex-wrap(wrap);
     a {
       text-decoration: none !important;
-      padding: 0.5rem;
+      padding: 0.325rem;
       border-radius: 0.125rem;
       
       @include flexbox();

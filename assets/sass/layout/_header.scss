@@ -49,3 +49,9 @@
     @include align-items(flex-end);
   }
 }
+
+.site-header-container {
+  @include themify($themes) {
+      background-color: themed('terms-background-color');
+  }
+}

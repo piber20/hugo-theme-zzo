@@ -1,12 +1,31 @@
 .donation {
-  margin: 2.5rem 0;
+  margin: 0.5rem 0 2.0rem 0;
   position: relative;
   
   &__icons {
     @include flexbox();
-    @include align-items(center);
-    @include justify-content(center);
     @include flex-wrap(wrap);
+
+	&[data-align='center'] {
+		@include align-items(center);
+		@include align-content(center);
+		@include align-self(center);
+		@include justify-content(center);
+	}
+
+	&[data-align='left'] {
+		@include align-items(flex-start);
+		@include align-content(flex-start);
+		@include align-self(flex-start);
+		@include justify-content(flex-start);
+	}
+
+	&[data-align='right'] {
+		@include align-items(flex-start);
+		@include align-content(flex-start);
+		@include align-self(flex-start);
+		@include justify-content(flex-start);
+	}
 
     a {
       text-decoration: none !important;
@@ -21,140 +40,67 @@
     font-family: $title-font;
     
     @include flexbox();
-    @include justify-content(center);
+
+	&[data-align='center'] {
+		@include align-items(center);
+		@include align-content(center);
+		@include align-self(center);
+		@include justify-content(center);
+	}
+
+	&[data-align='left'] {
+		@include align-items(flex-start);
+		@include align-content(flex-start);
+		@include align-self(flex-start);
+		@include justify-content(flex-start);
+	}
+
+	&[data-align='right'] {
+		@include align-items(flex-end);
+		@include align-content(flex-end);
+		@include align-self(flex-end);
+		@include justify-content(flex-end);
+	}
   }
 
-  &__item {
+  &__button {
     font-family: $title-font;
     font-size: 0.8rem;
-    cursor: pointer;
+	font-weight: bold;
     border-radius: 0.25rem;
     margin: 0.25rem;
-    text-transform: capitalize;
-    
-    @include flexbox();
-    @include align-items(center);
 
-    &[data-type="donation"] {
-      svg {
-        @include themify($themes) {
-          color: themed('share-color');
-          background-color: themed('donation-background-color');
-          @include box-shadow(1px, 1px, 3px, 0, themed('share-shadow-color'));
-        }
-      }
-    }
+	&[data-name="link"] {
+      cursor: pointer;
+      font-size: 1.0rem;
+      text-transform: capitalize;
+	}
 
-    &[data-type="share"] {
-      svg {
-        @include themify($themes) {
-          color: themed('share-color');
-          background-color: themed('share-background-color');
-          @include box-shadow(1px, 1px, 3px, 0, themed('share-shadow-color'));
-        }
-      }
-    }
+	&[data-name="text"] {
+      text-transform: capitalize;
+	}
 
-    svg {
-      padding: 0.375rem;
+    &[data-type="mirror"] {
+      padding-right: 0.4rem;
+      padding-left: 0.15rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.75rem;
       border-radius: 0.25rem;
-      margin-right: 0.25rem;
-      
-      &[data-name="douban"] {
-        color: white;
-        @include on-event {
-          background-color: #007722;
-        }
-      }
-      &[data-name="facebook"] {
-        color: white;
-        @include on-event {
-          background-color: #1877F2;  
-        }
-      }
-      &[data-name="twitter"] {
-        color: white;
-        @include on-event {
-          background-color: #1DA1F2;  
-        }
-      }
-      &[data-name="reddit"] {
-        color: white;
-        @include on-event {
-          background-color: #FF4500;  
-        }
-      }
-      &[data-name="tumblr"] {
-        color: white;
-        @include on-event {
-          background-color: #36465D;  
-        }
-      }
-      &[data-name="linkedin"] {
-        color: white;
-        @include on-event {
-          background-color: #0077B5;  
-        }
-      }
-      &[data-name="weibo"] {
-        color: white;
-        @include on-event {
-          background-color: #E6162D;  
-        }
-      }
-      &[data-name="line"] {
-        color: white;
-        @include on-event {
-          background-color: #00C300;
-        }
-      }
-      &[data-name="telegram"] {
-        color: white;
-        @include on-event {
-          background-color: #2CA5E0;
-        }
-      }
-      &[data-name="whatsapp"] {
-        color: white;
-        @include on-event {
-          background-color: #25D366;
-        }
-      }
-      &[data-name="pocket"] {
-        color: white;
-        @include on-event {
-          background-color: #EF3F56;
-        }
-      }
-      &[data-name="feedly"] {
-        color: white;
-        @include on-event {
-          background-color: #2BB24C;
-        }
-      }
-      &[data-name="hatena"] {
-        color: white;
-        @include on-event {
-          background-color: #00A4DE;
-        }
-      }
-      &[data-name="pinterest"] {
-        color: white;
-        @include on-event {
-          background-color: #BD081C;
-        }
-      }
-      &[data-name="delicious"] {
-        color: white;
-        @include on-event {
-          background-color: #3399FF;
-        }
-      }
-      &[data-name="google"] {
-        color: white;
-        @include on-event {
-          background-color: #4285F4;
-        }
+		
+	  span {
+		line-height: 0%;
+		position: relative;
+		bottom: 8px;
+	  }
+	  
+      @include themify($themes) {
+        color: themed('share-color');
+        background-color: themed('share-background-color');
+        @include box-shadow(1px, 1px, 3px, 0, themed('share-shadow-color'));
+		@include on-event {
+		  color: themed('share-color-hover');
+          background-color: themed('share-background-color-hover');
+		}
       }
 
       @include transition(transform, 0.15s, ease-in);
@@ -162,6 +108,389 @@
         @include translateY(-0.25rem);
       }
     }
+
+    svg {
+      padding: 0.375rem;
+	  position: relative;
+	  top: 2px;
+    }
+
+    img {
+      padding: 0.375rem;
+	  position: relative;
+	  top: 2px;
+	  max-height: 35px;
+    }
+	
+    &[data-name="modpub"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #0d6efd;
+		}
+      }
+    }
+    &[data-name="nexusmods"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #e6832b;
+		}
+      }
+    }
+    &[data-name="nexusmodsfo3"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #92ab20;
+		}
+      }
+    }
+    &[data-name="mo2"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #3EA2CA;
+		}
+      }
+    }
+    &[data-name="itchio"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #FA5C5C;
+		}
+      }
+    }
+    &[data-name="windows"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #2B2B2B;
+		  svg {
+			  color: #0078D4;
+		  }
+		}
+      }
+    }
+    &[data-name="twine"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #0B9E39;
+		  svg {
+			  color: #006DDB;
+		  }
+		}
+      }
+    }
+    &[data-name="curseforge"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #F16436;
+		}
+      }
+    }
+    &[data-name="modrinth"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #1BD96A;
+		}
+      }
+    }
+    &[data-name="planetminecraft"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #3DA2FF;
+		  svg {
+			  color: #448001;
+		  }
+		}
+      }
+    }
+    &[data-name="moddrop"] {
+      &[data-type="mirror"] {
+		@include on-event {
+		  color: white;
+		  background-color: #3585D0;
+		}
+      }
+    }
+  }
+
+  &__item {
+    font-family: $title-font;
+    font-size: 0.8rem;
+    border-radius: 0.25rem;
+    margin: 0.25rem;
+
+	&[data-name="link"] {
+      cursor: pointer;
+      font-size: 1.0rem;
+      text-transform: capitalize;
+	}
+
+	&[data-name="text"] {
+      text-transform: capitalize;
+	}
+
+
+    svg {
+      padding: 0.375rem;
+      border-radius: 0.25rem;
+      margin-right: 0.25rem;
+	  
+      @include themify($themes) {
+        color: themed('share-color');
+        background-color: themed('share-background-color');
+        @include box-shadow(1px, 1px, 3px, 0, themed('share-shadow-color'));
+		@include on-event {
+		  color: themed('share-color-hover');
+          background-color: themed('share-background-color-hover');
+		}
+      }
+
+      @include transition(transform, 0.15s, ease-in);
+      @include on-event {
+        @include translateY(-0.25rem);
+      }
+    }
+      
+      &[data-name="douban"] {
+		svg {
+			color: white;
+			@include on-event {
+			  background-color: #007722;
+			}
+		}
+      }
+      &[data-name="facebook"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #1877F2;  
+			}
+        }
+      }
+      &[data-name="x"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: black;  
+			}
+        }
+      }
+      &[data-name="reddit"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #FF4500;  
+			}
+        }
+      }
+      &[data-name="tumblr"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #36465D;  
+			}
+        }
+      }
+      &[data-name="linkedin"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #0077B5;  
+			}
+        }
+      }
+      &[data-name="weibo"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #E6162D;  
+			}
+        }
+      }
+      &[data-name="line"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #00C300;
+			}
+        }
+      }
+      &[data-name="telegram"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #2CA5E0;
+			}
+        }
+      }
+      &[data-name="whatsapp"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #25D366;
+			}
+        }
+      }
+      &[data-name="pocket"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #EF3F56;
+			}
+        }
+      }
+      &[data-name="feedly"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #2BB24C;
+			}
+        }
+      }
+      &[data-name="hatena"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #00A4DE;
+			}
+        }
+      }
+      &[data-name="pinterest"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #BD081C;
+			}
+        }
+      }
+      &[data-name="delicious"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #3399FF;
+			}
+        }
+      }
+      &[data-name="google"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #4285F4;
+			}
+        }
+      }
+      &[data-name="ko-fi"] {
+		svg {
+			@include on-event {
+			  color: #23A8E0;
+			  background-color: #FF5D5A;
+			}
+        }
+      }
+      &[data-name="patreon"] {
+		svg {
+			@include on-event {
+			  color: #F96854;
+			  background-color: #052B47;
+			}
+        }
+      }
+      &[data-name="paypal"] {
+		svg {
+			@include on-event {
+			  color: #283593;
+			  background-color: #039BE5;
+			}
+        }
+      }
+      &[data-name="bluesky"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #0085FF;  
+			}
+        }
+      }
+      &[data-name="threads"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #101010;  
+			}
+        }
+      }
+      &[data-name="cashapp"] {
+		svg {
+			@include on-event {
+			  color: #white;
+			  background-color: #00D64F;
+			}
+        }
+      }
+      &[data-name="boosty"] {
+		svg {
+			@include on-event {
+			  color: #white;
+			  background-color: #F15F2C;
+			}
+        }
+      }
+	  &[data-name="itchio"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #FA5C5C;
+			}
+		}
+	  }
+	  &[data-name="buymeacoffee"] {
+		svg {
+			@include on-event {
+			  color: black;
+			  background-color: #FFDD00;
+			}
+		}
+	  }
+	  &[data-name="stripe"] {
+		svg {
+			@include on-event {
+			  color: white;
+			  background-color: #675DFF;
+			}
+		}
+	  }
+	  &[data-name="mastodon"] {
+		  svg {
+			  @include on-event {
+				  color: white;
+				  background-color: #6364FF;
+			  }
+		  }
+	  }
+	  &[data-name="coindrop"] {
+		  svg {
+			  @include on-event {
+				  color: black;
+				  background-color: #FFB655;
+			  }
+		  }
+	  }
+	  &[data-name="liberapay"] {
+		  svg {
+			  @include on-event {
+				  color: #1A171B;
+				  background-color: #F6C915;
+			  }
+		  }
+	  }
   }
 
   &__dropup {
@@ -202,4 +531,8 @@
 
 .donation__dropup:hover .donation__dropup--content {
   display: block;
+}
+
+.license__message {
+    font-size: 0.8rem;
 }
