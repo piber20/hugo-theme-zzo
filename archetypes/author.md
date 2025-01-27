@@ -17,7 +17,7 @@ socialOptions:
   email: ""
   phone: ""
   facebook: ""
-  twitter: ""
+  x: ""
   github: ""
   stack-overflow: ""
   instagram: ""
