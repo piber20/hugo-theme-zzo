@@ -50,10 +50,40 @@ other = "Total visitors"
 other = "views"
 
 [donate-message]
-other = "Support the author with"
+other = "Support me on"
+
+[donate-message-payment]
+other = "Donate to me on"
+
+[donate-message-coffee]
+other = "Buy me a Coffee"
 
 [share-message]
 other = "Share on"
+
+[mirror-message]
+other = "View on"
+
+[downloadmo2-message]
+other = "Download with Mod Manager"
+
+[downloadmo2-message-fo3]
+other = "Download for Fallout 3 with Mod Manager"
+
+[downloadmo2-message-fnv]
+other = "Download for Fallout: New Vegas with Mod Manager"
+
+[downloadmo2-message-ttw]
+other = "Download for Tale of Two Wastelands with Mod Manager"
+
+[downloadmo2-message-fnvttw]
+other = "Download for Fallout: New Vegas or TTW with Mod Manager"
+
+[download-message]
+other = "Direct Link"
+
+[downloadwin-message]
+other = "Download for Windows"
 
 [contact-name]
 other = "Name"
@@ -80,10 +110,13 @@ other = "Browse"
 other = "Home"
 
 [tooltip-written]
-other = "Written At"
+other = "Published"
 
 [tooltip-modified]
-other = "Modified At"
+other = "Last updated"
+
+[tooltip-version]
+other = "Current version: v"
 
 [tooltip-reading-time]
 other = "Reading Time"
@@ -117,3 +150,21 @@ other = "kimbie"
 
 [no-contents]
 other = "Nothing to Display"
+
+[downloads-message]
+other = "Downloads"
+
+[links-message]
+other = "Links"
+
+[license-message]
+other = "This work is licensed under"
+
+[license-message-short]
+other = "This work is"
+
+[requirements-message]
+other = "Requirements"
+
+[mirrors-message]
+other = "Mirrors"
